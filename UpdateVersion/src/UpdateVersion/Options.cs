@@ -204,22 +204,15 @@ namespace MattGriffith.UpdateVersion
  		/// Returns null if the pin option 
  		/// was not specified on the command line.
  		/// </value>
- 		public Version PinVersion
+ 		public string PinVersion
  		{
  			get
  			{
- 				Version pinVersion = null;
- 
  				if(this._PinOption.IsMissing)
- 				{
- 					pinVersion = null;
- 				}
- 				else
- 				{
- 					pinVersion = new Version(this._PinOption.Value);
- 				}
- 
- 				return pinVersion;
+ 					return null;
+ 				
+                return this._PinOption.Value;
+ 				
  			}
  		}
 
@@ -398,7 +391,7 @@ namespace MattGriffith.UpdateVersion
 
 			if(lower.StartsWith("f"))
 			{
-				result = VersionType.File;
+                return VersionType.File;
 			}
             if (versionDescription.ToLower().StartsWith("i"))
             {
@@ -417,7 +410,7 @@ namespace MattGriffith.UpdateVersion
 		/// </exception>
 		private void ValidatePinOption()
 		{
-			if(!this._PinOption.IsMissing)
+			if(!this._PinOption.IsMissing && this.VersionType != VersionType.Informational )
 			{
 				try
 				{
