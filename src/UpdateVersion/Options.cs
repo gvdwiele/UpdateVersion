@@ -391,7 +391,7 @@ namespace MattGriffith.UpdateVersion
 
 			if(lower.StartsWith("f"))
 			{
-				result = VersionType.File;
+                return VersionType.File;
 			}
             if (versionDescription.ToLower().StartsWith("i"))
             {
