@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateVersion", "UpdateVersion.csproj", "{C1F02492-3AA6-4A47-89A7-4973005F8110}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateVersion", "src\UpdateVersion\UpdateVersion.csproj", "{C1F02492-3AA6-4A47-89A7-4973005F8110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateVersionTasks", "src\UpdateVersionTasks\UpdateVersionTasks.csproj", "{ADA62A91-DCCF-4835-B789-A1C800C2105D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{C1F02492-3AA6-4A47-89A7-4973005F8110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F02492-3AA6-4A47-89A7-4973005F8110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F02492-3AA6-4A47-89A7-4973005F8110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA62A91-DCCF-4835-B789-A1C800C2105D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA62A91-DCCF-4835-B789-A1C800C2105D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA62A91-DCCF-4835-B789-A1C800C2105D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA62A91-DCCF-4835-B789-A1C800C2105D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,16 @@ UpdateVersion can calculate the revision number by incrementing the existing rev
 Revision History
 *******************************************************************************
 
+Version 1.3
+
+	Gregory Van de Wiele - http://geekswithblogs.net/gwiele
+
+		* Added support for updating informational version with an arbitrary string: --version "Info"  
+		
+		* Fixed 2010 bug (only 2 digits were used before)
+
+		* Fixed bug with file version update
+
 Version 1.2
 
 	Matt Griffith - http://mattgriffith.net

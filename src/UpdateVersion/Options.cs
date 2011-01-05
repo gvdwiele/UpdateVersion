@@ -28,7 +28,7 @@ namespace MattGriffith.UpdateVersion
 	/// <summary>
 	/// Represents the command line options for this application.
 	/// </summary>
-	class Options
+	public class Options
 	{
 		/// <summary>
 		/// Describes the available command line options and their proper usage.
@@ -71,7 +71,12 @@ namespace MattGriffith.UpdateVersion
 		/// </summary>
 		private readonly StringOption _OutputFile;
 
-		/// <summary>
+        /// <summary>
+        /// Stores the input when the file command line option is missing.
+        /// </summary>
+        private readonly StringOption _Input;
+
+        /// <summary>
 		/// Stores the version command line option.
 		/// </summary>
 		private readonly StringOption _VersionOption;
@@ -90,6 +95,7 @@ namespace MattGriffith.UpdateVersion
 			_RevisionOption = new StringOption("r", "revision", "Automatic");
 			_InputFile = new StringOption("i", "inputfile");
 			_OutputFile = new StringOption("o", "outputfile");
+            _Input = new StringOption("in", "input");
 			_VersionOption = new StringOption("v", "version");
 
 			// Create a new command line parser and add our options
@@ -322,6 +328,27 @@ namespace MattGriffith.UpdateVersion
 				return filename;
 			}
 		}
+
+        /// <summary>
+        /// Gets the input specified on the command line.
+        /// </summary>
+        /// <value>
+        /// Returns null if the input was not specified on the command line.
+        /// </value>
+        public string Input
+        {
+            get
+            {
+                
+                if (this._Input.IsMissing)
+                {
+                    return null;
+                }
+                
+                return this._Input.Value;
+                
+            }
+        }
 
 		/// <summary>
 		/// Gets the outputfile specified on the command line.

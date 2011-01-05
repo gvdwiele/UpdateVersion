@@ -4,6 +4,8 @@
 	<property name="debug" value="true"/>
 	<property name="project.name" value="UpdateVersion"/>
 	<property name="project.FormalName" value="UpdateVersion"/>
+	<property name="project.tasks.name" value="UpdateVersionTasks"/>
+	<property name="project.tasks.FormalName" value="UpdateVersionTasks"/>
 	<property name="src.dir" value="src"/>
 	<property name="build.dir" value="build"/>
 	<property name="dist.dir" value="${project.name}"/>
@@ -69,9 +71,20 @@
 		<!-- compile UpdateVersion.exe -->
 		<csc target="exe" output="${build.dir}\${project.FormalName}.exe" debug="${debug}">
 			<sources basedir="${src.dir}\${project.FormalName}">
-				<includes name="**/*.cs"/>
+				<include name="**/*.cs"/>
 			</sources>
 			<arg value="/nowarn:1591"/>
+			<arg value="/nowarn:1607"/>
+		</csc>
+		<csc target="library" output="${build.dir}\${project.tasks.FormalName}.dll" debug="${debug}">
+			<sources basedir="${src.dir}\${project.tasks.FormalName}">
+				<include name="**/*.cs"/>
+			</sources>
+			<references>
+			        <include name="${build.dir}\${project.FormalName}.exe" />
+    				<include name="Microsoft.Build.Framework.dll" />
+			        <include name="Microsoft.Build.Utilities.dll" />
+     		        </references>
 		</csc>
 	</target>
 	<target name="backup" depends="clean" description="make local backup">
@@ -91,16 +104,14 @@
         <call target="release-build"/>
 
         <copy file="${build.dir}\UpdateVersion.exe" todir="${dist.dir}\bin"/>
-        
+        <copy file="${build.dir}\UpdateVersionTasks.dll" todir="${dist.dir}\bin"/>
+        <copy file="${src.dir}\${project.tasks.FormalName}\UpdateVersion.targets" todir="${dist.dir}\bin"/>
+
         <copy todir="${dist.dir}">
             <fileset>
                 <includes name="bin/**"/>
                 <includes name="doc/**"/>
                 <includes name="src/**"/>
-                <!-- start: exclude VS.Net stuff -->
-                <excludes name="src/UpdateVersion/bin/**"/>
-                <excludes name="src/UpdateVersion/obj/**"/>
-                <!-- end: exclude VS.Net stuff -->
                 <includes name="examples/**"/>
                 <includes name="UpdateVersion.build"/>
                 <includes name="UpdateVersion.csproj"/>

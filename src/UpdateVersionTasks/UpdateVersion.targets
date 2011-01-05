@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<solvITBaseLibraryTasksPath Condition="'$(solvITBaseLibraryTasksPath)' == ''">$(MSBuildExtensionsPath)\solvIT.BaseLibrary.Build</solvITBaseLibraryTasksPath>
+		<UpdateVersionTasksLib>$(solvITBaseLibraryTasksPath)\UpdateVersionTasks.dll</UpdateVersionTasksLib>
+	</PropertyGroup>
+
+	<UsingTask AssemblyFile="$(UpdateVersionTasksLib)" TaskName="UpdateVersion" />
+
+	<PropertyGroup>
+		<PathToSourceFileWithDotNetVersion>commonassemblyinfo.cs</PathToSourceFileWithDotNetVersion>
+		<PathToSourceFileWithWindowsVersions>commonassemblyversioninfo.cs</PathToSourceFileWithWindowsVersions>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<StartDate></StartDate>
+		<Build></Build>
+		<Pin></Pin>
+		<Revision></Revision>
+		<InputFile></InputFile>
+		<Input></Input>
+		<UpdatedInput></UpdatedInput>
+		<Version></Version>
+	</PropertyGroup>
+
+	<Target Name="UpdateVersion">
+		<UpdateVersion Build="BuildDay" Revision="Automatic" InputFile="$(PathToSourceFileWithDotNetVersion)" OutputFile="$(PathToSourceFileWithDotNetVersion)" Version="File">
+			<Output TaskParameter="UpdatedInput" PropertyName="UpdatedInput" />
+		</UpdateVersion>
+		<UpdateVersion Build="BuildDay" Revision="Automatic" InputFile="$(PathToSourceFileWithWindowsVersions)" OutputFile="$(PathToSourceFileWithWindowsVersions)" Version="Info">
+			<Output TaskParameter="UpdatedInput" PropertyName="UpdatedInput" />
+		</UpdateVersion>
+	</Target>
+
+</Project>

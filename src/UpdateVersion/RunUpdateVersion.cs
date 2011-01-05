@@ -31,13 +31,13 @@ namespace MattGriffith.UpdateVersion
 	/// <summary>
 	/// 
 	/// </summary>
-	class RunUpdateVersion
+    public class RunUpdateVersion
 	{
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static int Main(string[] args)
+		public static int Main(string[] args)
 		{
 			Options options = null;
 			string input = null;

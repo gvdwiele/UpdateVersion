@@ -29,7 +29,7 @@ namespace MattGriffith.UpdateVersion
 	/// <summary>
 	/// Specifies the algorithm to use when calculating a new build number.
 	/// </summary>
-	enum BuildNumberType
+	public enum BuildNumberType
 	{
 		/// <summary>
 		/// Indicates the build number should not change.
@@ -59,7 +59,7 @@ namespace MattGriffith.UpdateVersion
 	/// <summary>
 	/// Specifies the algorithm to use when calculating a new revision number.
 	/// </summary>
-	enum RevisionNumberType
+	public enum RevisionNumberType
 	{
 		/// <summary>
 		/// Calculates the revision number based on the number of seconds since midnight divided by 10.
@@ -80,7 +80,7 @@ namespace MattGriffith.UpdateVersion
 	/// <summary>
 	/// Specifies the version attribute type that should be updated.
 	/// </summary>
-	enum VersionType
+	public enum VersionType
 	{
 		/// <summary>
 		/// Updates the AssemblyVersion attribute.

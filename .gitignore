@@ -5,6 +5,7 @@ TestResults/
 debug/
 release/
 redist/
+UpdateVersion/
 obj
 *.user
 *.suo
@@ -32,3 +33,4 @@ describe.txt
 tag.txt
 version.txt
 *.tmp
+*.zip

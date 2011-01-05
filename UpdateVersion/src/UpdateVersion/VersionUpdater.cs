@@ -29,7 +29,7 @@ namespace MattGriffith.UpdateVersion
 	/// Searches for an AssemblyVersion attribute in an input string and updates the version
 	/// number using the provided options.
 	/// </summary>
-	class VersionUpdater
+	public class VersionUpdater
 	{
 		/// <summary>
 		/// A regex that matches strings like 'AssemblyVersion("1.0.0.1")'
