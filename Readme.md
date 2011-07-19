@@ -1,6 +1,6 @@
+#UpdateVersion
 *******************************************************************************
-Overview
-*******************************************************************************
+##Overview
 
 UpdateVersion searches its input for a .NET AssemblyVersion attribute and calculates a new version number using one of several algorithms. UpdateVersion can use a file or the standard input stream for input and it can write its output to a file or the standard output stream.
 
@@ -13,46 +13,34 @@ UpdateVersion can calculate the build number by incrementing the existing build 
 UpdateVersion can calculate the revision number by incrementing the existing revision number or it can calculate the revision number based on the number of seconds since midnight.
 
 *******************************************************************************
-Revision History
-*******************************************************************************
+##Revision History
 
-Version 1.3
+###Version 1.3
 
-	Gregory Van de Wiele - http://geekswithblogs.net/gwiele
+* Gregory Van de Wiele - http://geekswithblogs.net/gwiele
+  * Added support for updating informational version with an arbitrary string: --version "Info"  
+  * Fixed 2010 bug (only 2 digits were used before)
+  * Fixed bug with file version update
 
-		* Added support for updating informational version with an arbitrary string: --version "Info"  
-		
-		* Fixed 2010 bug (only 2 digits were used before)
+###Version 1.2
 
-		* Fixed bug with file version update
+* Matt Griffith - http://mattgriffith.net
+  * Added Version option.
+  * Attempted to improve Unicode handling by outputting to file using the default encoding.
 
-Version 1.2
+* Scott Hanselman - http://www.hanselman.com/blog/ 
+  * Added BuildDay algorithm for build number calculation.
+  * Added Fixed algorithm for revision number calculation.
+  * Updated the Regular expression to handle this condition: [assembly: AssemblyVersionAttribute("1.0.3296.1")]
+  * Refactored VersionUpdater.cs.
 
-	Matt Griffith - http://mattgriffith.net
+###Version 1.1
 
-		* Added Version option.
-
-		* Attempted to improve Unicode handling by outputting to file using the default encoding.
-
-	Scott Hanselman - http://www.hanselman.com/blog/ 
-
-		* Added BuildDay algorithm for build number calculation.
-
-		* Added Fixed algorithm for revision number calculation.
-
-		* Updated the Regular expression to handle this condition: [assembly: AssemblyVersionAttribute("1.0.3296.1")]
-
-		* Refactored VersionUpdater.cs.
-
-Version 1.1
-	Mike Gunderloy - http://www.larkware.com
-
-		* Added the Pin feature.
-
+* Mike Gunderloy - http://www.larkware.com
+  * Added the Pin feature.
 
 *******************************************************************************
-Known issues
-*******************************************************************************
+##Known issues
 
 UpdateVersion uses the default encoding to open input files. This can cause UpdateVersion to drop characters in the output if the input is ANSI encoded and uses extended character codes. 
 
@@ -61,14 +49,12 @@ To work around this problem make sure your input files are saved as UTF-8 or don
 A future version of UpdateVersion may allow you to specify the encoding of the input and output files.
 
 *******************************************************************************
-Installing UpdateVersion
-*******************************************************************************
+##Installing UpdateVersion
 
 Unzip to a directory. You can then run UpdateVersion.exe from the bin directory. You can add the bin directory to your PATH for easier access.
 
 *******************************************************************************
-Building UpdateVersion
-*******************************************************************************
+##Building UpdateVersion
 
 To build using NAnt run:
 
