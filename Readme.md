@@ -1,5 +1,5 @@
 #UpdateVersion
-*******************************************************************************
+
 ##Overview
 
 UpdateVersion searches its input for a .NET AssemblyVersion attribute and calculates a new version number using one of several algorithms. UpdateVersion can use a file or the standard input stream for input and it can write its output to a file or the standard output stream.
@@ -12,7 +12,6 @@ UpdateVersion can calculate the build number by incrementing the existing build 
 
 UpdateVersion can calculate the revision number by incrementing the existing revision number or it can calculate the revision number based on the number of seconds since midnight.
 
-*******************************************************************************
 ##Revision History
 
 ###Version 1.3
@@ -39,7 +38,6 @@ UpdateVersion can calculate the revision number by incrementing the existing rev
 * Mike Gunderloy - http://www.larkware.com
   * Added the Pin feature.
 
-*******************************************************************************
 ##Known issues
 
 UpdateVersion uses the default encoding to open input files. This can cause UpdateVersion to drop characters in the output if the input is ANSI encoded and uses extended character codes. 
@@ -48,12 +46,10 @@ To work around this problem make sure your input files are saved as UTF-8 or don
 
 A future version of UpdateVersion may allow you to specify the encoding of the input and output files.
 
-*******************************************************************************
 ##Installing UpdateVersion
 
 Unzip to a directory. You can then run UpdateVersion.exe from the bin directory. You can add the bin directory to your PATH for easier access.
 
-*******************************************************************************
 ##Building UpdateVersion
 
 To build using NAnt run:
